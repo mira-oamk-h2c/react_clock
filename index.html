@@ -7,7 +7,7 @@
   <title>Clock</title>
   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-  
+
   <!-- Don't use this in production: -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
@@ -18,35 +18,35 @@
     class Clock extends React.Component {
       constructor(props) {
         super(props);
-        this.state = {date: new Date()};
+        this.state = { date: new Date() };
       }
-      
+
       componentDidMount() {
         this.timerID = setInterval(() => this.tick(), 1000);
       }
-      
+
       componentWillUnMount() {
         clearInterval(this.timerID);
       }
-      
+
       tick() {
         this.setState({
           date: new Date()
         });
       }
-      
+
       render() {
         return (
-        <div>
-          <p>{this.state.date.toLocaleTimeString()}</p>
-        </div>
+          <div>
+            <p>{this.state.date.toLocaleTimeString()}</p>
+          </div>
         );
       }
     }
 
     ReactDOM.render(
-    <Clock />,
-    document.getElementById('root')
+      <Clock />,
+      document.getElementById('root')
     );
 
   </script>
